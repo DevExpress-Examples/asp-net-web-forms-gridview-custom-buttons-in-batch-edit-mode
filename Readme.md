@@ -12,6 +12,9 @@
 
 In [batch edit mode](https://docs.devexpress.com/AspNet/16443/components/grid-view/concepts/edit-data/batch-edit-mode), the Grid displays three buttons in [status bar](https://docs.devexpress.com/AspNet/3693/components/grid-view/visual-elements/status-bar): _Preview changes_, _Save changes_, and _Cancel changes_. You can not change the buttons or their behavior. This example demonstrates how to replace the default buttons with custom buttons.
 
+![Grid View - Confirmation message](grid-custom-buttons.png)
+
+
 To replace the default buttons with custom buttons, implement the [StatusBar](http://docs.devexpress.devx/AspNet/DevExpress.Web.GridViewTemplates.StatusBar) template.
 
 ```aspx
