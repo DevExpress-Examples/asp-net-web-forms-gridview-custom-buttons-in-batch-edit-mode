@@ -4,7 +4,7 @@
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
 
-# GridView for Web Forms - How to implement custom buttons in status bar in batch edit mode
+# GridView for Web Forms - How to implement custom buttons in the status bar in batch edit mode
 
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/t114462/)**
