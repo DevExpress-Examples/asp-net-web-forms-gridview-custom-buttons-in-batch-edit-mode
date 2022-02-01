@@ -3,23 +3,55 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T114462)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-<!-- default file list -->
-*Files to look at*:
 
-* [Default.aspx](./CS/T114462/Default.aspx) (VB: [Default.aspx](./VB/T114462/Default.aspx))
-* [Default.aspx.cs](./CS/T114462/Default.aspx.cs) (VB: [Default.aspx.vb](./VB/T114462/Default.aspx.vb))
-<!-- default file list end -->
-# ASPxGridView - Batch Editing - How to display save and cancel buttons only after editing
+# GridView for Web Forms - How to implement custom buttons in status bar in batch edit mode
+
 <!-- run online -->
 **[[Run Online]](https://codecentral.devexpress.com/t114462/)**
 <!-- run online end -->
 
-<p><strong>UPDATED:<br></strong><br>Starting with v18.2, if a grid contains modified data, it displays a confirmation message before a grid performs a postback or a callback. The <a href="https://docs.devexpress.com/AspNet/DevExpress.Web.GridViewBatchEditSettings.KeepChangesOnCallbacks">KeepChangesOnCallbacks</a> property specifies whether the grid supports callbacks and allows you to use the 'Preview changes' button to preview and modify inserted, deleted and edited rows before you click 'Save changes'.</p>
+In [batch edit mode](https://docs.devexpress.com/AspNet/16443/components/grid-view/concepts/edit-data/batch-edit-mode), the Grid displays three buttons in [status bar](https://docs.devexpress.com/AspNet/3693/components/grid-view/visual-elements/status-bar): _Preview changes_, _Save changes_, and _Cancel changes_. You can not change the buttons or their behavior. This example demonstrates how to replace the default buttons with custom buttons.
 
-<p><strong>UPDATED:<br></strong><br>Starting with v16.1, this feature is available out of the box. Please refer to the <a href="https://www.devexpress.com/Support/Center/p/T341469">ASPxGridView, ASPxCardView - Change Save and Cancel buttons' enabled state when an end-user changes a value in BatchEdit mode</a> thread for additional information.<br><br>This example demonstrates how to hide the <em>Save changes</em> and <em>Cancel </em><em>changes</em> buttons, and show them only when an end-user edits any cell or row.<br>
-  
-  <strong>See Also:</strong><br><a href="https://www.devexpress.com/Support/Center/p/T150388">ASPxGridView - Batch Editing - How to use external buttons to update data and enable them only when a row/cell has been changed  </a> <br><strong>MVC Example:</strong><br><a href="https://www.devexpress.com/Support/Center/p/T150411">GridView - Batch Editing - How to show save and cancel buttons only when any row/cell has been changed</a></p>
+To replace the default buttons with custom buttons, implement the [StatusBar](http://docs.devexpress.devx/AspNet/DevExpress.Web.GridViewTemplates.StatusBar) template.
 
-<br/>
+```aspx
+<Templates>
+  <StatusBar>
+    <dx:ASPxButton ClientInstanceName="btnPreview"... />
+    <dx:ASPxButton ClientInstanceName="btnSave"... />
+    <dx:ASPxButton ClientInstanceName="btnCancel"... />
+  </StatusBar>
+</Templates>
+```
 
+Handle the [BatchEditEndEditing](http://docs.devexpress.devx/AspNet/js-ASPxClientGridView.BatchEditEndEditing) event and change the button visibility based on your conditions. In this example, custom buttons repeat the default buttons' behavior: they are hidden when the Grid has no changes and the _Show changes_ button changes its text when clicked.
 
+```js
+function SetButtonsVisibility(s) {
+  var visibility = s.batchEditApi.HasChanges()
+  btnPreview.SetVisible(visibility);
+  btnSave.SetVisible(visibility);
+  btnCancel.SetVisible(visibility);
+}
+
+function onPreviewChangesClick(s, e) {
+  if (isPreviewChangesVisible) {
+    s.SetText("Show changes");
+    gridView.batchEditApi.HideChangesPreview();
+  }
+  else {
+    s.SetText("Hide preview");
+    gridView.batchEditApi.ShowChangesPreview();
+  }
+  isPreviewChangesVisible = !isPreviewChangesVisible;
+}
+```
+
+## Files to Look At
+- [Default.aspx](./CS/T114462/Default.aspx) (VB: [Default.aspx](./VB/T114462/Default.aspx))
+
+## Documentation
+- [Batch Edit Mode](https://docs.devexpress.com/AspNet/16443/components/grid-view/concepts/edit-data/batch-edit-mode)
+
+## More Examples
+- [GridView - Batch Editing - How to display save and cancel buttons only after editing](https://github.com/DevExpress-Examples/gridview-batch-editing-how-to-display-save-and-cancel-buttons-only-after-editing-t150411)

@@ -8,12 +8,10 @@
     <script type="text/javascript">
         var isPreviewChangesVisible = false;
         function SetButtonsVisibility(s) {
-            var statusBar = s.GetMainElement().getElementsByClassName("StatusBarWithButtons")[0].getElementsByTagName("td")[0];
-            if (!s.batchEditApi.HasChanges())
-                statusBar.style.visibility = "hidden";
-            else {
-                statusBar.style.visibility = "visible";
-            }
+            var visibility = s.batchEditApi.HasChanges()
+            btnPreview.SetVisible(visibility);
+            btnSave.SetVisible(visibility);
+            btnCancel.SetVisible(visibility);
         }
 
         function onPreviewChangesClick(s, e) {
@@ -63,24 +61,20 @@
                 <Templates>
                     <StatusBar>
                         <div style="text-align: right">
-                            <dx:ASPxButton ID="btnPrevChanges" runat="server" RenderMode="Outline" Text="Preview changes" 
+                            <dx:ASPxButton ID="btnPrevChanges" runat="server" ClientInstanceName="btnPreview" RenderMode="Outline" Text="Preview changes" 
                                 AutoPostBack="false">
                                 <ClientSideEvents Click="onPreviewChangesClick" />
                             </dx:ASPxButton>
-                            <dx:ASPxButton ID="btnSave" runat="server" RenderMode="Outline" Text="Save changes" AutoPostBack="false">
+                            <dx:ASPxButton ID="btnSave" runat="server" ClientInstanceName="btnSave" RenderMode="Outline" Text="Save changes" AutoPostBack="false">
                                 <ClientSideEvents Click="function(s, e){ gridView.UpdateEdit(); }" />
                             </dx:ASPxButton>
-                            <dx:ASPxButton ID="btnCancel" runat="server" RenderMode="Outline" Text="Cancel changes" AutoPostBack="false">
+                            <dx:ASPxButton ID="btnCancel" runat="server" ClientInstanceName="btnCancel" RenderMode="Outline" Text="Cancel changes" AutoPostBack="false">
                                 <ClientSideEvents Click="function(s, e){ gridView.CancelEdit(); SetButtonsVisibility(gridView); }" />
                             </dx:ASPxButton>
                         </div>
                     </StatusBar>
                 </Templates>
                 <SettingsEditing Mode="Batch" />
-                <Styles>
-                    <StatusBar CssClass="StatusBarWithButtons">
-                    </StatusBar>
-                </Styles>
             </dx:ASPxGridView>
         </div>
     </form>
