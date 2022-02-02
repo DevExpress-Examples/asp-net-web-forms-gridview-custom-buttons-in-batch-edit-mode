@@ -16,7 +16,7 @@
 >>>>>>> 18.2.11+
 
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t114462/)**
+**[[Run Online]](https://codecentral.devexpress.com/128532986/)**
 <!-- run online end -->
 
 In [batch edit mode](https://docs.devexpress.com/AspNet/16443/components/grid-view/concepts/edit-data/batch-edit-mode), the Grid displays three buttons in the [status bar](https://docs.devexpress.com/AspNet/3693/components/grid-view/visual-elements/status-bar): _Preview changes_, _Save changes_, and _Cancel changes_. You cannot change the behavior of the default buttons, but you can replace them with custom buttons. See the example below for details.
