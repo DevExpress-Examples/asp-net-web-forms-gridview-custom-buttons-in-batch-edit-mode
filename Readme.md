@@ -27,7 +27,7 @@ To replace the default buttons with custom buttons, implement the [StatusBar](ht
 </Templates>
 ```
 
-Handle the [BatchEditEndEditing](http://docs.devexpress.devx/AspNet/js-ASPxClientGridView.BatchEditEndEditing) event and change the button visibility based on your conditions. In this example, custom buttons repeat the default buttons' behavior: they are hidden when the Grid has no changes and the _Show changes_ button changes its text when clicked.
+Handle the [BatchEditEndEditing](http://docs.devexpress.devx/AspNet/js-ASPxClientGridView.BatchEditEndEditing) event and change the button visibility based on your conditions. In this example, custom buttons imitate the behavior of default buttons: they are hidden when the Grid has no changes and the _Show changes_ button changes its text to _Hide preview_ when clicked.
 
 ```js
 function SetButtonsVisibility(s) {
