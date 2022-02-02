@@ -11,7 +11,7 @@
 <!-- default file list end -->
 # ASPxGridView - Batch Editing - How to display save and cancel buttons only after editing
 <!-- run online -->
-**[[Run Online]](https://codecentral.devexpress.com/t114462/)**
+**[[Run Online]](https://codecentral.devexpress.com/128532986/)**
 <!-- run online end -->
 
 
