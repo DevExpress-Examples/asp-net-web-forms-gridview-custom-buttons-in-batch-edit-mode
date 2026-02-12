@@ -57,7 +57,7 @@ function onPreviewChangesClick(s, e) {
 ## More Examples
 - [GridView - Batch Editing - How to display save and cancel buttons only after editing](https://github.com/DevExpress-Examples/gridview-batch-editing-how-to-display-save-and-cancel-buttons-only-after-editing-t150411)
 <!-- feedback -->
-## Does this example address your development requirements/objectives?
+## Does This Example Address Your Development Requirements/Objectives?
 
 [<img src="https://www.devexpress.com/support/examples/i/yes-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-gridview-custom-buttons-in-batch-edit-mode&~~~was_helpful=yes) [<img src="https://www.devexpress.com/support/examples/i/no-button.svg"/>](https://www.devexpress.com/support/examples/survey.xml?utm_source=github&utm_campaign=asp-net-web-forms-gridview-custom-buttons-in-batch-edit-mode&~~~was_helpful=no)
 
